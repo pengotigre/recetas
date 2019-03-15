@@ -1,0 +1,17 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Nueva Receta
+
+	body
+		form(id="recetaForm" action="/nuevaReceta" method="post")
+			p
+				label(for="nombreForm") Receta:
+				input(type="text" id="nombreForm" name="nombre")
+			p
+				label(for="descripcionForm") Descripción:
+				input(type="text" id="descripcionForm" name="descripcion")
+
+			p
+				input(type="submit" id="boton1" value="Nueva Receta")
