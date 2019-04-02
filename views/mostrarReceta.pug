@@ -1,0 +1,33 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Mostrar Receta (Hoja 29 - Ejercicio 4)
+
+	body
+		h2 Selecciona receta:
+		p
+			if recetas
+				form(id="recetasForm" action="/mostrarReceta" method="get")
+					p
+						select(name="nombreRecetas" form="recetasForm")
+							each receta in recetas
+								option(value=receta.id_receta) #{receta.nombre}
+					p
+						input(type="submit" value="Mostrar Receta")
+
+		p
+			if datosReceta
+				form(id="actualizarForm" action="/mostrarReceta/actualizar" method="post")
+					input(type="hidden" id="id_recetaForm" name="id_receta" value=datosReceta[0].id_receta)
+
+					p
+						label(for="nombreForm") Nombre:
+						input(type="text" id="nombreForm" name="nombre" value=datosReceta[0].nombre)
+					p
+						label(for="descripcionForm") Descripción:
+						input(type="text" id="descripcionForm" name="descripcion" value=datosReceta[0].descripcion)
+
+					p
+						input(type="submit" value="Actualizar")
+						input(type="hidden" name="metodo" value="put")

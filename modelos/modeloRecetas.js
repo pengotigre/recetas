@@ -15,7 +15,53 @@ const consultaReceta = (id_receta, callback) => {
 	});
 };
 
+// Hoja 29 - Ejercico 2:
+
+const eliminarReceta = (texto, callback) => {
+	conexion.query('DELETE FROM recetas WHERE nombre LIKE "%"?"%"', texto, (error, result) => {
+		if (error) throw error;
+		else {
+			return callback(error, result);
+		};
+	});
+};
+
+// Hoja 29 - Ejercico 3:
+
+const eliminarReceta2 = (texto, callback) => {
+	conexion.query('DELETE FROM recetas WHERE nombre LIKE "%"?"%"', texto, (error, result) => {
+		if (error) throw error;
+		else {
+			return callback(error, result);
+		};
+	});
+};
+
+// Hoja 29 - Ejercico 4:
+
+const todasRecetas = (callback) => {
+	conexion.query('SELECT * FROM recetas', (error, result) => {
+		if (error) throw error;
+		else {
+			return callback(error, result);
+		};
+	});
+};
+
+const actualizarReceta = (receta, callback) => {
+	conexion.query('UPDATE recetas SET nombre = ?, descripcion = ? WHERE id_receta = ?', [receta.nombre, receta.descripcion, receta.id_receta], (error, result) => {
+		if (error) throw error;
+		else {
+			return callback(error, result);
+		};
+	});
+};
+
 module.exports = {
 	nuevaReceta,
-	consultaReceta
+	consultaReceta,
+	eliminarReceta,
+	eliminarReceta2,
+	todasRecetas,
+	actualizarReceta
 };

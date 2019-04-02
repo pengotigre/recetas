@@ -1,0 +1,11 @@
+En 'html' solo se pueden usar los métodos 'get' y 'post' en un formulario.
+Cuando se quiere usar otro método como: delete, put..., es necesario usar 'method-override' y requerirlo en 'app.js'.
+Este método será llamado desde 'router.delete' (por ejemplo) en 'controlador.js' y se encargará de cambiar el método que tiene el formulario de 'html'
+Y ponerlo antes del 'app.use' del 'controlador' en 'app.js', para que el 'controlador' sepa ya como debe comportarse
+
+
+1º - hoja 29 - ejercicio 4 - controlador 'get' llamando al modelo, me devuelve los datos y los paso al pug.
+
+Necesito el objeto 'registros'... envío registro.id_receta
+Para mantener el select, tengo que guardar los datos con el 'session' (que ya hicimos), pero no sería buena ya que no se actualizaría con los cambios de otros usuarios... entonces un router.get en controlador
+

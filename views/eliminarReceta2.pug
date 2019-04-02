@@ -1,0 +1,16 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		title Eliminar Receta 2 (Hoja 29 - Ejercicio 3)
+
+	body
+		p #{mensaje2}
+		form(id="eliminarForm" action="/eliminarReceta2/:nombre" method="post")
+			p
+				label(for="recetaEliminar") Eliminar recetas que contengan:
+			p
+				input(type="text" id="recetaEliminar" name="nombre")
+			p
+				input(type="hidden" name="metodo" value="delete")
+				input(type="submit" value="Eliminar")
